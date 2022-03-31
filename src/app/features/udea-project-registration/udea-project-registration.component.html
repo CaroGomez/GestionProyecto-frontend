@@ -1,0 +1,55 @@
+<form class="form-container">
+  <section>
+    <h1>
+      {{ 'project.register' | translate }}
+    </h1>
+  </section>
+  <div class="row">
+    <div class="form-floating mb-3 col-12 col-md-6 left-input-form">
+      <input
+        [(ngModel)]="project.name"
+        class="form-control"
+        id="projectName"
+        name="name"
+        placeholder=" "
+        type="text"
+      />
+      <label for="projectName" class="field-label">{{
+        'project.name' | translate
+        }}</label>
+    </div>
+    <div class="form-floating mb-3 col-12 col-md-6 right-input-form">
+      <input
+        [(ngModel)]="project.document"
+        class="form-control"
+        id="projectLastName"
+        name="lastName"
+        placeholder=" "
+        type="text"
+      />
+      <label for="projectLastName" class="field-label">{{
+        'project.document' | translate
+        }}</label>
+    </div>
+  </div>
+
+  <app-udea-comment-creation></app-udea-comment-creation>
+  <app-udea-kpi-creation></app-udea-kpi-creation>
+  <app-udea-student-assignment></app-udea-student-assignment>
+  <app-udea-teacher-assignment></app-udea-teacher-assignment>
+  <section class="buttons-container">
+    <button
+      class="btn btn-outline-success mr-3"
+      type="submit"
+      (click)="onSave()"
+    >
+      {{ 'buttonText.save' | translate }}
+    </button>
+    <button
+      class="btn btn-outline-danger"
+      type="button"
+    >
+      {{ 'buttonText.cancel' | translate }}
+    </button>
+  </section>
+</form>

@@ -1,0 +1,44 @@
+{
+  "project": {
+    "register": "Registro de proyecto",
+    "name": "Nombre",
+    "document": "Documento",
+    "id": "Identificación",
+    "comments": "Comentarios",
+    "kpis": "Kpis",
+    "students": "Estudiantes",
+    "teachers": "Profesores"
+  },
+  "navBar": {
+    "register": "Registo",
+    "list": "Lista de Productos"
+  },
+  "comment": {
+    "title": "Comentarios"
+  },
+  "kpi": {
+    "title": "KPIs",
+    "name": "Nombre",
+    "description": "Descripción",
+    "completed": "Completado"
+  },
+  "student": {
+    "title": "Estudiante(s)",
+    "id": "Identificación",
+    "name": "Nombre",
+    "email": "Correo",
+    "phone": "Teléfono"
+  },
+  "teacher": {
+    "title": "Profesor(s)",
+    "id": "Identificación",
+    "name": "Nombre",
+    "email": "Correo",
+    "phone": "Teléfono"
+  },
+  "button": {
+    "add": "Agregar",
+    "save": "Guardar",
+    "remove": "Eliminar"
+  }
+}
