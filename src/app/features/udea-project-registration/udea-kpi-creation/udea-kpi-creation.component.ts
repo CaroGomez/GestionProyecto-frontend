@@ -1,7 +1,7 @@
-import { Component, OnInit } from '@angular/core';
+import {Component, Input, OnInit} from '@angular/core';
 import {AbstractControl, FormArray, FormBuilder, FormGroup} from "@angular/forms";
-import {KpiModel} from "../../model/kpi.model";
-import {ProjectService} from "../../service/project.service";
+import {KpiModel} from "../../../model/kpi.model";
+import {ProjectService} from "../../../service/project.service";
 
 @Component({
   selector: 'app-udea-kpi-creation',
@@ -9,8 +9,8 @@ import {ProjectService} from "../../service/project.service";
   styleUrls: ['./udea-kpi-creation.component.scss']
 })
 export class UdeaKpiCreationComponent implements OnInit {
-  // @ts-ignore
-  kpiForm: FormGroup;
+  @Input()
+  kpiForm: FormGroup = this.fb.group({});
   kpisList: KpiModel[] = [];
   get kpis(): FormArray {
     return this.kpiForm.get('kpis') as FormArray;
@@ -21,9 +21,6 @@ export class UdeaKpiCreationComponent implements OnInit {
   ) {}
 
   ngOnInit(): void {
-    this.kpiForm = this.fb.group({
-      kpis: this.fb.array([]),
-    });
     // this.kpiService
     //   .getKpi(this.idSelectedPatient.toString())
     //   .subscribe((kpis) => {
@@ -65,25 +62,5 @@ export class UdeaKpiCreationComponent implements OnInit {
       //   .deletekpi(kpi.get('id').value)
       //   .subscribe(() => this.spinnerService.hide());
     }
-  }
-
-  saveKpi(): void {
-    // this.spinnerService.show();
-    for (const kpisKey of this.kpis.controls) {
-      this.kpisList.push({
-        // @ts-ignore
-        id: kpisKey.get('id').value,
-        // @ts-ignore
-        name: kpisKey.get('name').value,
-        // @ts-ignore
-        description: kpisKey.get('description').value,
-        // @ts-ignore
-        completed: kpisKey.get('completed')?.value
-      });
-    }
-    this.projectService.setKpis(this.kpisList);
-    // this.kpiService
-    //   .savekpi(this.kpisList, this.idSelectedPatient.toString())
-    // .subscribe(() => this.spinnerService.hide());
   }
 }

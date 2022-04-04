@@ -2,12 +2,6 @@
 <form [formGroup]="teacherForm">
   <div formArrayName="teachers">
     <div *ngFor="let complement of teachers.controls; let i = index">
-      <button
-        class="btn btn-danger"
-        (click)="deleteTeacher(complement, i)"
-      >
-        {{ 'button.remove' | translate }}
-      </button>
 
       <div [formGroupName]="i" class="form-floating mt-3 mb-4">
 
@@ -62,15 +56,16 @@
           'teacher.phone' | translate
           }}</label>
       </div>
+
+      <button
+        class="btn btn-danger mb-2"
+        (click)="deleteTeacher(complement, i)"
+      >
+        {{ 'button.remove' | translate }}
+      </button>
     </div>
   </div>
-  <button class="btn btn-success" (click)="addTeacher()">
+  <button class="btn button-primary" (click)="addTeacher()">
     {{ 'button.add' | translate }}
-  </button>
-  <button
-    class="btn btn-outline-success"
-    (click)="saveTeacher()"
-  >
-    {{ 'button.save' | translate }}
   </button>
 </form>

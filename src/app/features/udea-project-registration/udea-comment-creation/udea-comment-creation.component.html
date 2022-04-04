@@ -2,12 +2,6 @@
 <form [formGroup]="commentForm">
   <div formArrayName="comments">
       <div *ngFor="let complement of comments.controls; let i = index">
-          <button
-            class="btn btn-danger"
-            (click)="deleteComment(complement, i)"
-          >
-            {{ 'button.remove' | translate }}
-          </button>
           <div [formGroupName]="i" class="form-floating mt-3 mb-4">
             <textarea
               class="form-control"
@@ -16,15 +10,15 @@
               formControlName="content"
             ></textarea>
           </div>
+        <button
+          class="btn btn-danger mb-2"
+          (click)="deleteComment(complement, i)"
+        >
+          {{ 'button.remove' | translate }}
+        </button>
       </div>
   </div>
-  <button class="btn btn-success" (click)="addComment()">
+  <button class="btn button-primary" (click)="addComment()">
     {{ 'button.add' | translate }}
-  </button>
-  <button
-    class="btn btn-outline-success"
-    (click)="saveComment()"
-  >
-    {{ 'button.save' | translate }}
   </button>
 </form>

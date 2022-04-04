@@ -1,7 +1,7 @@
-import { Component, OnInit } from '@angular/core';
+import {Component, Input, OnInit} from '@angular/core';
 import {AbstractControl, FormArray, FormBuilder, FormGroup} from "@angular/forms";
-import {UserModel} from "../../model/user.model";
-import {ProjectService} from "../../service/project.service";
+import {UserModel} from "../../../model/user.model";
+import {ProjectService} from "../../../service/project.service";
 
 @Component({
   selector: 'app-udea-teacher-assignment',
@@ -9,8 +9,8 @@ import {ProjectService} from "../../service/project.service";
   styleUrls: ['./udea-teacher-assignment.component.scss']
 })
 export class UdeaTeacherAssignmentComponent implements OnInit {
-// @ts-ignore
-  teacherForm: FormGroup;
+  @Input()
+  teacherForm: FormGroup = this.fb.group({});
   teachersList: UserModel[] = [];
   get teachers(): FormArray {
     return this.teacherForm.get('teachers') as FormArray;
@@ -21,9 +21,6 @@ export class UdeaTeacherAssignmentComponent implements OnInit {
   ) {}
 
   ngOnInit(): void {
-    this.teacherForm = this.fb.group({
-      teachers: this.fb.array([]),
-    });
     // this.teacherService
     //   .getteacher(this.idSelectedPatient.toString())
     //   .subscribe((teachers) => {
@@ -70,29 +67,5 @@ export class UdeaTeacherAssignmentComponent implements OnInit {
       //   .deleteteacher(teacher.get('id').value)
       //   .subscribe(() => this.spinnerService.hide());
     }
-  }
-
-  saveTeacher(): void {
-    // this.spinnerService.show();
-    for (const teachersKey of this.teachers.controls) {
-
-      this.teachersList.push({
-        // @ts-ignore
-        id: teachersKey.get('id').value,
-        // @ts-ignore
-        name: teachersKey.get('name').value,
-        // @ts-ignore
-        email: teachersKey.get('email').value,
-        // @ts-ignore
-        phone: teachersKey.get('phone')?.value,
-        // @ts-ignore
-        role: teachersKey.get('role')?.value
-      });
-    }
-
-    this.projectService.setTeachers(this.teachersList);
-    // this.teacherService
-    //   .saveTeacher(this.teachersList, this.idSelectedPatient.toString())
-    // .subscribe(() => this.spinnerService.hide());
   }
 }

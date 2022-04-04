@@ -1,3 +1,27 @@
+
+// Colors
 $primary: #3065d7;
+$border-color-base: #ddd1d1;
 $white: #fff;
 $black: #000;
+
+// font weight
+$font-weight-bold: 700;
+
+//spacing
+$space-base: 0.5rem;
+$space-xs: $space-base / 2;
+$space-sm: $space-base * 1.5;
+$space-md: $space-base * 2;
+$space-lg: $space-base * 3;
+$space-xl: $space-md * 2;
+$space-xxl: $space-xl * 2;
+
+// font size
+$font-sizes-h2: 1.5rem;
+
+// screen size
+$screen-sm: 576px;
+$screen-md: 768px;
+$screen-lg: 992px;
+$screen-lg: 1200px;

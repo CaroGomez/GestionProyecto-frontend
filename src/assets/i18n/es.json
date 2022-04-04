@@ -39,6 +39,7 @@
   "button": {
     "add": "Agregar",
     "save": "Guardar",
-    "remove": "Eliminar"
+    "remove": "Eliminar",
+    "cancel": "Cancelar"
   }
 }

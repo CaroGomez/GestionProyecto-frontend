@@ -1,7 +1,7 @@
-import { Component, OnInit } from '@angular/core';
+import {Component, Input, OnInit} from '@angular/core';
 import {AbstractControl, FormArray, FormBuilder, FormGroup} from "@angular/forms";
-import {CommentModel} from "../../model/comment.model";
-import {ProjectService} from "../../service/project.service";
+import {CommentModel} from "../../../model/comment.model";
+import {ProjectService} from "../../../service/project.service";
 
 @Component({
   selector: 'app-udea-comment-creation',
@@ -9,8 +9,8 @@ import {ProjectService} from "../../service/project.service";
   styleUrls: ['./udea-comment-creation.component.scss']
 })
 export class UdeaCommentCreationComponent implements OnInit {
-  // @ts-ignore
-  commentForm: FormGroup;
+  @Input()
+  commentForm: FormGroup = this.fb.group({});
   commentsList: CommentModel[] = [];
   get comments(): FormArray {
     return this.commentForm.get('comments') as FormArray;
@@ -21,9 +21,6 @@ export class UdeaCommentCreationComponent implements OnInit {
   ) {}
 
   ngOnInit(): void {
-    this.commentForm = this.fb.group({
-      comments: this.fb.array([]),
-    });
     // this.commentService
     //   .getcomment(this.idSelectedPatient.toString())
     //   .subscribe((comments) => {
@@ -33,7 +30,7 @@ export class UdeaCommentCreationComponent implements OnInit {
     //   });
   }
 
-  private createFormcomment(comment: CommentModel): FormGroup {
+  private createFormComment(comment: CommentModel): FormGroup {
     return this.fb.group({
       id: comment.id,
       content: comment.content,
@@ -61,22 +58,5 @@ export class UdeaCommentCreationComponent implements OnInit {
       //   .deletecomment(comment.get('id').value)
       //   .subscribe(() => this.spinnerService.hide());
     }
-  }
-
-  saveComment(): void {
-    // this.spinnerService.show();
-    for (const commentsKey of this.comments.controls) {
-
-      this.commentsList.push({
-        // @ts-ignore
-        id: commentsKey.get('id').value,
-        // @ts-ignore
-        content: commentsKey.get('content').value
-      });
-    }
-    this.projectService.setComments(this.commentsList);
-    // this.commentService
-    //   .savecomment(this.commentsList, this.idSelectedPatient.toString())
-      // .subscribe(() => this.spinnerService.hide());
   }
 }

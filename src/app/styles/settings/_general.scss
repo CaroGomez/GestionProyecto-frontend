@@ -1,0 +1,14 @@
+h1, h2 {
+  font-weight: $font-weight-bold;
+  border-bottom: 1px solid $border-color-base;
+  padding-bottom: $space-base;
+  margin-bottom: $space-md;
+}
+
+h2 {
+  font-size: $font-sizes-h2;
+}
+
+.component-wrapper {
+  margin-bottom: $space-sm;
+}

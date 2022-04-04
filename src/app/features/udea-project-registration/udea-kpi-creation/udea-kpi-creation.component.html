@@ -2,12 +2,6 @@
 <form [formGroup]="kpiForm">
   <div formArrayName="kpis">
     <div *ngFor="let complement of kpis.controls; let i = index">
-      <button
-        class="btn btn-danger"
-        (click)="deleteKpi(complement, i)"
-      >
-        {{ 'button.remove' | translate }}
-      </button>
       <div [formGroupName]="i" class="form-floating mt-3 mb-4">
         <input
           class="form-control"
@@ -43,15 +37,15 @@
           />
         </div>
       </div>
+      <button
+        class="btn btn-danger mb-2"
+        (click)="deleteKpi(complement, i)"
+      >
+        {{ 'button.remove' | translate }}
+      </button>
     </div>
   </div>
-  <button class="btn btn-success" (click)="addKpi()">
+  <button class="btn button-primary" (click)="addKpi()">
     {{ 'button.add' | translate }}
-  </button>
-  <button
-    class="btn btn-outline-success"
-    (click)="saveKpi()"
-  >
-    {{ 'button.save' | translate }}
   </button>
 </form>

@@ -1,8 +1,8 @@
-import { Component, OnInit } from '@angular/core';
+import {Component, Input, OnInit} from '@angular/core';
 import {AbstractControl, FormArray, FormBuilder, FormGroup} from "@angular/forms";
-import {KpiModel} from "../../model/kpi.model";
-import {UserModel} from "../../model/user.model";
-import {ProjectService} from "../../service/project.service";
+import {KpiModel} from "../../../model/kpi.model";
+import {UserModel} from "../../../model/user.model";
+import {ProjectService} from "../../../service/project.service";
 
 @Component({
   selector: 'app-udea-student-assignment',
@@ -10,8 +10,8 @@ import {ProjectService} from "../../service/project.service";
   styleUrls: ['./udea-student-assignment.component.scss']
 })
 export class UdeaStudentAssignmentComponent implements OnInit {
-// @ts-ignore
-  studentForm: FormGroup;
+  @Input()
+  studentForm: FormGroup = this.fb.group({});
   studentsList: UserModel[] = [];
   get students(): FormArray {
     return this.studentForm.get('students') as FormArray;
@@ -22,9 +22,6 @@ export class UdeaStudentAssignmentComponent implements OnInit {
   ) {}
 
   ngOnInit(): void {
-    this.studentForm = this.fb.group({
-      students: this.fb.array([]),
-    });
     // this.studentService
     //   .getstudent(this.idSelectedPatient.toString())
     //   .subscribe((students) => {
@@ -73,27 +70,4 @@ export class UdeaStudentAssignmentComponent implements OnInit {
     }
   }
 
-  saveStudent(): void {
-    // this.spinnerService.show();
-    for (const studentsKey of this.students.controls) {
-
-      this.studentsList.push({
-        // @ts-ignore
-        id: studentsKey.get('id')?.value,
-        // @ts-ignore
-        name: studentsKey.get('name')?.value,
-        // @ts-ignore
-        email: studentsKey.get('email')?.value,
-        // @ts-ignore
-        phone: studentsKey.get('phone')?.value,
-        // @ts-ignore
-        role: studentsKey.get('role')?.value
-      });
-    }
-
-    this.projectService.setStudents(this.studentsList);
-    // this.studentService
-    //   .saveStudent(this.studentsList, this.idSelectedPatient.toString())
-    // .subscribe(() => this.spinnerService.hide());
-  }
 }
