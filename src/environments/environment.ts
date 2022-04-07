@@ -7,7 +7,7 @@ export const environment = {
 };
 
 export const urls = {
-  url: 'http://localhost:8081/api'
+  url: 'https://gestion-proyecto-backend.herokuapp.com/'
 };
 
 /*
