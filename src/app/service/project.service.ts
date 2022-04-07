@@ -1,6 +1,6 @@
 import {Injectable} from '@angular/core';
 import {ProjectModel} from "../model/project.model";
-import {urls} from "../../environments/environment";
+import {urls} from "../../environments/environment.prod";
 import {HttpClient, HttpHeaders} from "@angular/common/http";
 import {catchError, EMPTY, Observable, Subject, tap, throwError} from "rxjs";
 import Swal from "sweetalert2";
