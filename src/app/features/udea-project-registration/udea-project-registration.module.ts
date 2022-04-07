@@ -7,6 +7,7 @@ import {UdeaCommentCreationModule} from "./udea-comment-creation/udea-comment-cr
 import {UdeaKpiCreationModule} from "./udea-kpi-creation/udea-kpi-creation.module";
 import {UdeaStudentAssignmentModule} from "./udea-student-assignment/udea-student-assignment.module";
 import {UdeaTeacherAssignmentModule} from "./udea-teacher-assignment/udea-teacher-assignment.module";
+import {RouterModule} from "@angular/router";
 
 
 
@@ -14,15 +15,16 @@ import {UdeaTeacherAssignmentModule} from "./udea-teacher-assignment/udea-teache
   declarations: [
     UdeaProjectRegistrationComponent
   ],
-  imports: [
-    CommonModule,
-    TranslateModule,
-    FormsModule,
-    UdeaCommentCreationModule,
-    UdeaKpiCreationModule,
-    UdeaStudentAssignmentModule,
-    UdeaTeacherAssignmentModule,
-    ReactiveFormsModule
-  ]
+    imports: [
+        CommonModule,
+        TranslateModule,
+        FormsModule,
+        UdeaCommentCreationModule,
+        UdeaKpiCreationModule,
+        UdeaStudentAssignmentModule,
+        UdeaTeacherAssignmentModule,
+        ReactiveFormsModule,
+        RouterModule
+    ]
 })
 export class UdeaProjectRegistrationModule { }

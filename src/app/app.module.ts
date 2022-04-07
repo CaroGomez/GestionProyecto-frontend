@@ -9,7 +9,12 @@ import {TranslateHttpLoader} from '@ngx-translate/http-loader';
 import {HttpClient, HttpClientModule} from "@angular/common/http";
 import {AppRoutingModule} from "./app-routing.module";
 import {UdeaProjectRegistrationModule} from "./features/udea-project-registration/udea-project-registration.module";
-
+import {UdeaProjectListModule} from "./features/udea-project-list/udea-project-list.module";
+import {
+  IgxPieChartModule,
+  IgxLegendModule,
+  IgxItemLegendModule
+} from "igniteui-angular-charts";
 
 @NgModule({
   declarations: [
@@ -20,6 +25,7 @@ import {UdeaProjectRegistrationModule} from "./features/udea-project-registratio
     UdeaNavbarModule,
     UdeaProjectRegistrationModule,
     HttpClientModule,
+    UdeaProjectListModule,
     TranslateModule.forRoot({
       loader: {
         provide: TranslateLoader,
@@ -29,6 +35,9 @@ import {UdeaProjectRegistrationModule} from "./features/udea-project-registratio
     }),
     AppRoutingModule,
     RouterModule,
+    IgxPieChartModule,
+    IgxLegendModule,
+    IgxItemLegendModule
   ],
   providers: [],
   bootstrap: [AppComponent]

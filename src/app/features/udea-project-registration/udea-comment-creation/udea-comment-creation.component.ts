@@ -1,5 +1,5 @@
 import {Component, Input, OnInit} from '@angular/core';
-import {AbstractControl, FormArray, FormBuilder, FormGroup} from "@angular/forms";
+import {AbstractControl, FormArray, FormBuilder, FormGroup, Validators} from "@angular/forms";
 import {CommentModel} from "../../../model/comment.model";
 import {ProjectService} from "../../../service/project.service";
 
@@ -21,20 +21,6 @@ export class UdeaCommentCreationComponent implements OnInit {
   ) {}
 
   ngOnInit(): void {
-    // this.commentService
-    //   .getcomment(this.idSelectedPatient.toString())
-    //   .subscribe((comments) => {
-    //     comments.forEach((comment) => {
-    //       this.comments.push(this.createFormcomment(comment));
-    //     });
-    //   });
-  }
-
-  private createFormComment(comment: CommentModel): FormGroup {
-    return this.fb.group({
-      id: comment.id,
-      content: comment.content,
-    });
   }
 
   addComment(): void {
@@ -44,19 +30,11 @@ export class UdeaCommentCreationComponent implements OnInit {
   createForm(): FormGroup {
     return this.fb.group({
       id: null,
-      content: ''
+      content: ['', Validators.required]
     });
   }
 
   deleteComment(comment: AbstractControl, index: number): void {
-    // @ts-ignore
-    if (comment.get('id').value === null) {
-      this.comments.removeAt(index);
-    } else {
-      // this.spinnerService.show();
-      // this.commentService
-      //   .deletecomment(comment.get('id').value)
-      //   .subscribe(() => this.spinnerService.hide());
-    }
+    this.comments.removeAt(index);
   }
 }

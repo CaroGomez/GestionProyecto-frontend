@@ -1,5 +1,5 @@
 import {Component, Input, OnInit} from '@angular/core';
-import {AbstractControl, FormArray, FormBuilder, FormGroup} from "@angular/forms";
+import {AbstractControl, FormArray, FormBuilder, FormGroup, Validators} from "@angular/forms";
 import {UserModel} from "../../../model/user.model";
 import {ProjectService} from "../../../service/project.service";
 
@@ -21,13 +21,6 @@ export class UdeaTeacherAssignmentComponent implements OnInit {
   ) {}
 
   ngOnInit(): void {
-    // this.teacherService
-    //   .getteacher(this.idSelectedPatient.toString())
-    //   .subscribe((teachers) => {
-    //     teachers.forEach((teacher) => {
-    //       this.teachers.push(this.createFormteacher(teacher));
-    //     });
-    //   });
   }
 
   private createFormTeacher(teacher: UserModel): FormGroup {
@@ -47,25 +40,17 @@ export class UdeaTeacherAssignmentComponent implements OnInit {
   createForm(): FormGroup {
     return this.fb.group({
       id: null,
-      name: '',
-      email: '',
-      phone: false,
+      name: ['', Validators.required],
+      email: ['', Validators.required],
+      phone: ['', Validators.required],
       role: {
-        id: 0,
+        id: null,
         name: 'MAESTRO'
       }
     });
   }
 
   deleteTeacher(teacher: AbstractControl, index: number): void {
-    // @ts-ignore
-    if (teacher.get('id').value === null) {
-      this.teachers.removeAt(index);
-    } else {
-      // this.spinnerService.show();
-      // this.teacherService
-      //   .deleteteacher(teacher.get('id').value)
-      //   .subscribe(() => this.spinnerService.hide());
-    }
+    this.teachers.removeAt(index);
   }
 }

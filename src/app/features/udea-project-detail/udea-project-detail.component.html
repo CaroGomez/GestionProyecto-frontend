@@ -1,23 +1,10 @@
-<form class="form-container" [formGroup]="projectForm">
+<form class="form-container" *ngIf="projectForm" [formGroup]="projectForm" >
   <section>
     <h1>
-      {{ 'project.register' | translate }}
+      {{projectForm.get('name')?.value}}
     </h1>
   </section>
-  <div class="row">
-    <div class="form-floating mb-3 col-12 col-md-6 left-input-form">
-      <input
-        class="form-control"
-        id="projectName"
-        name="name"
-        placeholder=" "
-        type="text"
-        formControlName="name"
-      />
-      <label for="projectName" class="field-label">{{
-        'project.name' | translate
-        }}</label>
-    </div>
+  <div class="row" *ngIf="projectForm.get('name')?.value">
     <div class="form-floating mb-3 col-12 col-md-6 right-input-form">
       <input
         class="form-control"
@@ -33,20 +20,24 @@
     </div>
   </div>
 
-  <div class="component-wrapper">
+  <div class="component-wrapper" *ngIf="commentForm">
     <app-udea-comment-creation [commentForm]="commentForm"></app-udea-comment-creation>
   </div>
 
-  <div class="component-wrapper">
+  <div class="component-wrapper" *ngIf="kpiForm">
     <app-udea-kpi-creation [kpiForm]="kpiForm"></app-udea-kpi-creation>
   </div>
 
-  <div class="component-wrapper">
+  <div class="component-wrapper" *ngIf="studentForm">
     <app-udea-student-assignment [studentForm]="studentForm"></app-udea-student-assignment>
   </div>
 
-  <div class="component-wrapper">
+  <div class="component-wrapper" *ngIf="teacherForm">
     <app-udea-teacher-assignment [teacherForm]="teacherForm"></app-udea-teacher-assignment>
+  </div>
+  <div class="container">
+    <h1>{{'project.graphic' | translate}}</h1>
+    <app-udea-chart></app-udea-chart>
   </div>
   <section class="buttons-container">
     <button
@@ -62,7 +53,9 @@
       type="button"
       [routerLink]="['/']"
     >
-      {{ 'button.cancel' | translate }}
+      {{ 'button.home' | translate }}
     </button>
   </section>
 </form>
+
+

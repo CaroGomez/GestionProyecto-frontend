@@ -1,8 +1,10 @@
 {
   "project": {
     "register": "Registro de proyecto",
-    "name": "Nombre",
-    "document": "Documento",
+    "graphic": "Grafica del proyecto",
+    "list": "Lista de proyectos",
+    "name": "Nombre(*)",
+    "document": "Documento(*)",
     "id": "Identificación",
     "comments": "Comentarios",
     "kpis": "Kpis",
@@ -10,7 +12,7 @@
     "teachers": "Profesores"
   },
   "navBar": {
-    "register": "Registo",
+    "register": "Registo de Proyectos",
     "list": "Lista de Proyectos"
   },
   "comment": {
@@ -18,28 +20,29 @@
   },
   "kpi": {
     "title": "KPIs",
-    "name": "Nombre",
+    "name": "Nombre(*)",
     "description": "Descripción",
     "completed": "Completado"
   },
   "student": {
     "title": "Estudiante(s)",
-    "id": "Identificación",
-    "name": "Nombre",
-    "email": "Correo",
-    "phone": "Teléfono"
+    "id": "Identificación(*)",
+    "name": "Nombre(*)",
+    "email": "Correo(*)",
+    "phone": "Teléfono(*)"
   },
   "teacher": {
     "title": "Profesor(s)",
-    "id": "Identificación",
-    "name": "Nombre",
-    "email": "Correo",
-    "phone": "Teléfono"
+    "id": "Identificación(*)",
+    "name": "Nombre(*)",
+    "email": "Correo(*)",
+    "phone": "Teléfono(*)"
   },
   "button": {
     "add": "Agregar",
     "save": "Guardar",
     "remove": "Eliminar",
-    "cancel": "Cancelar"
+    "cancel": "Cancelar",
+    "home": "Volver al inicio"
   }
 }

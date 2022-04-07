@@ -7,7 +7,7 @@ export const environment = {
 };
 
 export const urls = {
-  url: 'http://localhost:8080/api'
+  url: 'http://localhost:8081/api'
 };
 
 /*

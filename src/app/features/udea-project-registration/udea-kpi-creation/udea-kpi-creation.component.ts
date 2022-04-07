@@ -1,5 +1,5 @@
 import {Component, Input, OnInit} from '@angular/core';
-import {AbstractControl, FormArray, FormBuilder, FormGroup} from "@angular/forms";
+import {AbstractControl, FormArray, FormBuilder, FormGroup, Validators} from "@angular/forms";
 import {KpiModel} from "../../../model/kpi.model";
 import {ProjectService} from "../../../service/project.service";
 
@@ -30,15 +30,6 @@ export class UdeaKpiCreationComponent implements OnInit {
     //   });
   }
 
-  private createFormKpi(kpi: KpiModel): FormGroup {
-    return this.fb.group({
-      id: kpi.id,
-      name: kpi.name,
-      description: kpi.description,
-      completed: kpi.completed
-    });
-  }
-
   addKpi(): void {
     this.kpis.push(this.createForm());
   }
@@ -46,21 +37,13 @@ export class UdeaKpiCreationComponent implements OnInit {
   createForm(): FormGroup {
     return this.fb.group({
       id: null,
-      name: '',
+      name: ['', Validators.required],
       description: '',
       completed: false
     });
   }
 
   deleteKpi(kpi: AbstractControl, index: number): void {
-    // @ts-ignore
-    if (kpi.get('id').value === null) {
-      this.kpis.removeAt(index);
-    } else {
-      // this.spinnerService.show();
-      // this.kpiService
-      //   .deletekpi(kpi.get('id').value)
-      //   .subscribe(() => this.spinnerService.hide());
-    }
+    this.kpis.removeAt(index);
   }
 }

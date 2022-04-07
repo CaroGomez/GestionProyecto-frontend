@@ -2,6 +2,7 @@ import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { UdeaNavbarComponent } from './udea-navbar.component';
 import {TranslateModule} from "@ngx-translate/core";
+import {RouterModule} from "@angular/router";
 
 
 
@@ -12,9 +13,10 @@ import {TranslateModule} from "@ngx-translate/core";
   exports: [
     UdeaNavbarComponent
   ],
-  imports: [
-    CommonModule,
-    TranslateModule
-  ]
+    imports: [
+        CommonModule,
+        TranslateModule,
+        RouterModule
+    ]
 })
 export class UdeaNavbarModule { }

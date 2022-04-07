@@ -12,3 +12,11 @@ h2 {
 .component-wrapper {
   margin-bottom: $space-sm;
 }
+
+.required-element {
+  color: $required;
+}
+
+app-udea-navbar .navbar-light .navbar-nav .nav-link {
+  color: $white;
+}

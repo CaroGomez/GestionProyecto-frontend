@@ -1,7 +1,9 @@
 import { Component, OnInit } from '@angular/core';
 import {ProjectModel} from "../../model/project.model";
 import {ProjectService} from "../../service/project.service";
-import {FormArray, FormBuilder, FormGroup} from "@angular/forms";
+import {FormArray, FormBuilder, FormGroup, Validator, Validators} from "@angular/forms";
+import Swal from 'sweetalert2';
+import {ERROR_NAME_PROJECT} from "../../../assets/i18n/es";
 
 @Component({
   selector: 'app-udea-project-registration',
@@ -13,7 +15,7 @@ export class UdeaProjectRegistrationComponent implements OnInit {
   isEdit: boolean = false;
 
   projectForm: FormGroup = this.fb.group({
-    name: '',
+    name: ['', Validators.required],
     document: '',
     commentForm: this.fb.group({
       comments: this.fb.array([])
@@ -58,8 +60,7 @@ export class UdeaProjectRegistrationComponent implements OnInit {
     this.project.students = this.studentForm.get('students')?.value;
     this.project.teachers = this.teacherForm.get('teachers')?.value;
 
-    console.log(this.project);
-    this.projectService.saveProject(this.project).subscribe();
+    this.projectService.saveProject(this.project).subscribe(response => console.log(response));
   }
 
 

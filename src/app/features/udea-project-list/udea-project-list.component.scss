@@ -1,0 +1,28 @@
+.list-page-container {
+  display: flex;
+  flex-wrap: wrap;
+  width: 100%;
+
+  .project-details,
+  .project-list {
+    flex: 0 0 100%;
+    max-width: 100%;
+  }
+  @media (min-width: 576px) {
+    .project-details {
+      flex: 0 0 calc(60% - 0.5rem);
+      max-width: calc(60% - 0.5rem);
+      margin-left: 0.5rem;
+    }
+
+    .project-list {
+      flex: 0 0 calc(40% - 0.5rem);
+      max-width: calc(40% - 0.5rem);
+      margin-right: 0.5rem;
+    }
+  };
+}
+
+.container {
+  margin: 0 1rem;
+}

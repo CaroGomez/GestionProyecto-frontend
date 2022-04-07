@@ -1,0 +1,15 @@
+<div class="container">
+  <h1>
+    {{ 'project.list' | translate }}
+  </h1>
+  <div *ngIf="$Projects | async as projects" class="list-page-container">
+    <div class="list-group project-list">
+      <button *ngFor="let project of projects" class="list-group-item" (click)="onSelectedProject(project)">{{project.name}}
+      </button>
+    </div>
+    <div *ngIf="isItemSelected" class="project-details">
+      <app-udea-project-detail [projectSelected]="selectedProject"></app-udea-project-detail>
+    </div>
+  </div>
+</div>
+
