@@ -7,7 +7,7 @@ export const environment = {
 };
 
 export const urls = {
-  url: 'https://gestion-proyecto-backend.herokuapp.com'
+  url: 'https://gestion-proyecto-backend.herokuapp.com/api'
 };
 
 /*
